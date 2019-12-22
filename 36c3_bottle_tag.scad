@@ -1,9 +1,9 @@
 TAU = 2*PI;
 
 // text to put on tag
-string = "marble";
+string = "name";
 // angle of text
-text_angle = 135; // [45:180]
+text_angle = 75; // [45:180]
 // upper inner diameter
 upper_id = 40; // [1:0.1:100]
 // lower inner diameter
@@ -32,10 +32,15 @@ module bottle_tag(string="text", h=30, uid=40, lid=50, shell=3, raise=2, font="B
               linear_extrude(height=r_text, scale=[100, 1])
                 scale([1/100, 1])
                   intersection() {
-                    translate([-i*w_text, 0])
-                      resize(newsize=[w_text], auto=true)
-                        text(string, font=font, valign="center");
-                     square([w_text*_step_size, 100], center=true);
+                    translate([-i*w_text, 0]) {
+                      translate([w_text/2, h/4])
+                        resize([0, 3*h/7], auto=true)
+                            import("assets/dxf/Fairydust.dxf", center=true);
+                      translate([0, -h/4])
+                        resize(newsize=[w_text], auto=true)
+                          text(string, font=font, valign="center");
+                    }
+                    square([w_text*_step_size, 100], center=true);
                   }
         cylinder(h=h, d1=lid+2*shell+2*raise, d2=uid+2*shell+2*raise, center=true);
       }
