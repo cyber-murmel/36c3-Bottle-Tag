@@ -5,11 +5,11 @@ string = "name";
 // angle of text
 text_angle = 75; // [45:180]
 // upper inner diameter
-upper_id = 40; // [1:0.1:100]
+upper_id = 26; // [26, 26, 26]
 // lower inner diameter
-lower_id = 50; // [1:0.1:100]
+lower_id = 35; // [30, 35, 45]
 // height of the clip
-height = 30; // [1:0.1:100]
+height = 26; // [26, 26, 26]
 // wall thickness
 shell = 3; // [1:0.1:5]
 // outdentation of the text
